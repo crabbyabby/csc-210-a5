@@ -1,5 +1,6 @@
 import java.io.*;
 import java.util.Scanner;
+import java.util.ArrayList;
 
 class SolveMaze {
 
@@ -7,6 +8,19 @@ class SolveMaze {
     Scanner file = null;
     try {
       file = new Scanner(new File(fname));
+      int length = 0;
+      int width = 0;
+
+      while (file.hasNextLine()) {
+        String data = file.nextLine();
+        System.out.println(data);
+        width = data.length();
+        length++;
+      }
+
+      file = new Scanner(new File(fname));
+
+
     } catch (FileNotFoundException e) {
       System.err.println("Cannot locate file.");
       System.exit(-1);  
@@ -38,7 +52,7 @@ When neither base case applies:
       return false;
     }
 
-    if (maze.getContents(row, col).equals(maze.getFinish())) {
+    if (maze.getFinish().getCol() == col && maze.getFinish().getRow() == row) {
       maze.setContents(row, col, MazeContents.PATH);
       return true;
     }
@@ -46,7 +60,13 @@ When neither base case applies:
     maze.setContents(row, col, MazeContents.VISITED);
     boolean explored = solve(maze, row -1, col) || solve(maze, row + 1, col) || solve(maze, row, col - 1) || solve(maze, row, col + 1);
 
-    return false;
+    if (explored) {
+      maze.setContents(row, col, MazeContents.PATH);
+    } else {
+      maze.setContents(row, col, MazeContents.DEAD_END);
+    }
+
+    return explored;
   }
 
   
@@ -60,7 +80,7 @@ When neither base case applies:
     }
     
 
-    System.out.println(file.nextLine());
+    //System.out.println(file.nextLine());
     
     // Maze maze = new Maze();
     // MazeViewer viewer = new MazeViewer(maze);

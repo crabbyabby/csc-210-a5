@@ -2,11 +2,18 @@
 public class Maze implements DisplayableMaze{
 
     // Attributes
-    MazeContents[][] mazeGrid;
+    private MazeContents[][] mazeGrid;
     private int width;
     private int height;
     private MazeLocation start;
     private MazeLocation finish;
+
+    public Maze(int width, int height, MazeLocation start, MazeLocation finish) {
+        this.width = width;
+        this.height = height;
+        this.start = start;
+        this.finish = finish;
+    }
 
     /** @return height of maze grid */
     public int getHeight() {
