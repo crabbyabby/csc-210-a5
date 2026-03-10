@@ -17,9 +17,6 @@ public class MazeViewer extends JComponent implements ActionListener {
   /** Size of a maze square in graphic display */
   public static final int BLOCK = 12;
 
-  /** Holds the maze to solve */
-  private DisplayableMaze maze;
-
   /** Window the maze will appear in */
   private JFrame frame;
 

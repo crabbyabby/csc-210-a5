@@ -1,5 +1,66 @@
 /* This class should implement the DisplayableMaze interface */
-public class Maze{
+public class Maze implements DisplayableMaze{
+
+    // Attributes
+    MazeContents[][] mazeGrid;
+    private int width;
+    private int height;
+    private MazeLocation start;
+    private MazeLocation finish;
+
+    /** @return height of maze grid */
+    public int getHeight() {
+        return this.height;
+    }
+
+    /** @return width of maze grid */
+    public int getWidth(){
+        return this.width;
+    }
+
+    /** @return contents of maze grid at row i, column j */
+    public MazeContents getContents(int i, int j) {
+        if (i >= this.height || i < 0 || j >= this.width || j < 0) {
+            throw new IndexOutOfBoundsException("Invalid index");
+        }
+
+        return mazeGrid[i][j];
+    }
+
+    /** @return true if the maze grid is explorable at row i, column j 
+     * - in bounds,
+- not a wall, and
+- not already visited.
+    */
+    public boolean isExplorable(int i, int j) {
+        if (i < 0 || i >= height || j < 0 || j >= width) {
+            return false;
+        }
+
+        MazeContents contents = mazeGrid[i][j];
+        if (contents.equals(MazeContents.WALL) || contents.equals(MazeContents.VISITED)) {
+            return false;
+        }
+        return true;
+
+    }
+
+    /** @return location of maze start point */
+    public MazeLocation getStart() {
+        return this.start;
+    }
+
+    /** @return location of maze finish point */
+    public MazeLocation getFinish() {
+        return this.finish;
+    }
+
+    public void setContents(int row, int col, MazeContents content) {
+        if (row >= this.height || row < 0 || col >= this.width || col < 0) {
+            throw new IndexOutOfBoundsException("Invalid index");
+        }
+        mazeGrid[row][col] = content;
+    }
 
 
     /** This DemoMaze method will allow you to generate a simple maze
@@ -10,7 +71,7 @@ public class Maze{
      * * @author Tianah Gooden
      * * @version October 17th 2023
      */
-    public void initDemoMaze(){ //String fileName, 
+    public void initDemoMaze() { //String fileName, 
         this.height = 10;
         this.width = 8;
         this.mazeGrid = new MazeContents[height][width];

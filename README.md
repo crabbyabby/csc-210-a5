@@ -9,10 +9,20 @@ Your Name: Abigail Lei
 Other collaborators you worked with, including TAs (and feel free to give a shoutout to anyone who was particularly helpful):
 
 Any references used besides JavaDoc and course materials:
-
+https://www.geeksforgeeks.org/java/switch-statement-in-java/
 
 ## Reflection
 
 Do you have any remaining questions about this assignment?
 
 Reflection on your experience with this assignment:
+
+
+
+solve:
+base cases:
+1) if its finish -> return true
+2) if its unexplorable -> return false
+
+if its not any of them, go to recursive call:
+- explore to North, East, West, South
