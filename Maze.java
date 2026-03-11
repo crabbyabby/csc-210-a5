@@ -49,16 +49,16 @@ public class Maze implements DisplayableMaze{
 
     /** @return true if the maze grid is explorable at row i, column j 
      * - in bounds,
-- not a wall, and
-- not already visited.
-    */
+     * - not a wall, and
+     * - not already visited.
+     */
     public boolean isExplorable(int i, int j) {
         if (i < 0 || i >= height || j < 0 || j >= width) {
             return false;
         }
 
         MazeContents contents = mazeGrid[i][j];
-        if (contents.equals(MazeContents.WALL) || contents.equals(MazeContents.VISITED)) {
+        if (contents==MazeContents.WALL || contents ==MazeContents.VISITED || contents == MazeContents.DEAD_END) {
             return false;
         }
         return true;
