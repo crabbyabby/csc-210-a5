@@ -88,3 +88,4 @@ class SolveMaze {
 
     System.out.println("Solved: " + solved);
 }
+}
