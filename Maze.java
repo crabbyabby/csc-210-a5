@@ -1,6 +1,7 @@
-/* This class should implement the DisplayableMaze interface 
-* @author Abigail Lei
-*/
+/**
+ * Class for a Displayable Maze
+ * @author Abigail Lei
+ */
 public class Maze implements DisplayableMaze{
 
     // Attributes
