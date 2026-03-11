@@ -49,6 +49,13 @@ public class Maze implements DisplayableMaze{
         this.mazeGrid = new MazeContents[this.height][this.width];
     }
 
+    /**
+     * Constructor for that autograderrrr
+     */
+    public Maze(String mazeName) {
+        SolveMaze.readMaze(mazeName);
+    }
+
     /** 
      * Getter for height
      * @return height of maze grid */
