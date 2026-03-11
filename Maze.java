@@ -1,4 +1,6 @@
-/* This class should implement the DisplayableMaze interface */
+/* This class should implement the DisplayableMaze interface 
+* @author Abigail Lei
+*/
 public class Maze implements DisplayableMaze{
 
     // Attributes
@@ -8,18 +10,36 @@ public class Maze implements DisplayableMaze{
     private MazeLocation start;
     private MazeLocation finish;
 
+    /**
+     * Empty constructor, automatically sets 
+     * things to 10 width and 10 height
+     */
     public Maze() {
         this.width = 10;
         this.height = 10;
         this.mazeGrid = new MazeContents[this.height][this.width];
     }
 
+    /**
+     * Constructor that just takes in height and width
+     * Creates maze grid with those heights
+     * @param width the width of the maze
+     * @param height the height of the maze
+     */
     public Maze(int width, int height) {
         this.width = width;
         this.height = height;
         this.mazeGrid = new MazeContents[this.height][this.width];
     }
 
+    /**
+     * Constructor that takes in height and weight
+     * and start and finish
+     * @param width the width of the maze
+     * @param height the height of the maze
+     * @param start location where it starts
+     * @param finish location where it ends
+     */
     public Maze(int width, int height, MazeLocation start, MazeLocation finish) {
         this.width = width;
         this.height = height;
@@ -28,17 +48,24 @@ public class Maze implements DisplayableMaze{
         this.mazeGrid = new MazeContents[this.height][this.width];
     }
 
-    /** @return height of maze grid */
+    /** 
+     * Getter for height
+     * @return height of maze grid */
     public int getHeight() {
         return this.height;
     }
 
-    /** @return width of maze grid */
+    /** 
+     * Getter for width
+     * @return width of maze grid */
     public int getWidth(){
         return this.width;
     }
 
-    /** @return contents of maze grid at row i, column j */
+    /** 
+     * @param i -> row of content
+     * @param j column of content
+     * @return contents of maze grid at row i, column j */
     public MazeContents getContents(int i, int j) {
         if (i >= this.height || i < 0 || j >= this.width || j < 0) {
             throw new IndexOutOfBoundsException("Invalid index");
@@ -75,14 +102,29 @@ public class Maze implements DisplayableMaze{
         return this.finish;
     }
 
+    /**
+     * Setter to set a new finish
+     * @param finish location of finish
+     */
     public void setFinish(MazeLocation finish) {
         this.finish = finish;
     }
 
+    /**
+     * Setter / helper to set a new start
+     * @param start where maze starts
+     */
     public void setStart(MazeLocation start) {
         this.start = start;
     }
 
+    /**
+     * Setter which puts new material in maze
+     * @param row row to add new stuff
+     * @param col column to add new stuff
+     * @param content new stuff to add
+     * @throws IndexOutOfBoundsException if it is out of bounds
+     */
     public void setContents(int row, int col, MazeContents content) {
         if (row >= this.height || row < 0 || col >= this.width || col < 0) {
             throw new IndexOutOfBoundsException("Invalid index");

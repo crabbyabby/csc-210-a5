@@ -13,48 +13,48 @@ Please confirm the following minimum criteria are met:
 
 ___YES__ Program compiles without errors
 
-_____ All required files included with submission (including basic readme info and completed checklist file)
+___YES__ All required files included with submission (including basic readme info and completed checklist file)
 
-_____ README.md contains answers to any questions and your reflection on the assignment
+___YES__ README.md contains answers to any questions and your reflection on the assignment
 
 **Assignments that do not meet the above criteria cannot be graded**
 
 ## Coding Points (10 pts):
 
-_____ 1 pt: Maze class implements DisplayableMaze interface
+___YES__ 1 pt: Maze class implements DisplayableMaze interface
 
-_____ 2 pts: `solve` method correctly determines if a solution exists
+___YES__ 2 pts: `solve` method correctly determines if a solution exists
 
-_____ 2 pts: `solve` method uses recursion
+__YES__ 2 pts: `solve` method uses recursion
 
-_____ 1 pt: `isExplorable` correctly identifies explorable locations
+___YES__ 1 pt: `isExplorable` correctly identifies explorable locations
 
-_____ 2 pts: recursive style is simple and direct
+___YES__ 2 pts: recursive style is simple and direct
 
-_____ 2 pts: encodes maze contained in a text file
+___YES__ 2 pts: encodes maze contained in a text file
 
 ## Kudos:
 Manual grading only.
 
-_____ (kudos) Also implement an iterative solution to the maze
+___NO__ (kudos) Also implement an iterative solution to the maze
 
 ## Code Hygiene (4 pts):
 Manual grading only.
 
-_____ 1 pt: No copy/paste near-duplicate code blocks for the same behavior (reusing your code is better for everyone!)
+___YES__ 1 pt: No copy/paste near-duplicate code blocks for the same behavior (reusing your code is better for everyone!)
 
-_____ 1 pt: Common logic is factored into helpers
+___YES__ 1 pt: Common logic is factored into helpers
 
-_____ 1 pt: Methods are short enough to read (no 100-line monster methods unless justified)
+___YES__ 1 pt: Methods are short enough to read (no 100-line monster methods unless justified)
 
-_____ 1 pt: Names communicate intent (especially for helper methods)
+___YES__ 1 pt: Names communicate intent (especially for helper methods)
 
 ## General Items (6 pts):
 
-_____ 1 pt: Student-written code compiles without warnings that indicate correctness problems
+__YES__ 1 pt: Student-written code compiles without warnings that indicate correctness problems
 
-_____ 2 pts: Student-provided code runs and executes without unexpected crashing
+___YES__ 2 pts: Student-provided code runs and executes without unexpected crashing
 
-_____ 2 pt: Javadoc builds without errors/warnings
+___YES__ 2 pt: Javadoc builds without errors/warnings
 
-_____ 1 pt: Indentation and other style norms are followed
+___YES__ 1 pt: Indentation and other style norms are followed

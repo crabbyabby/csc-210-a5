@@ -2,8 +2,16 @@ import java.io.*;
 import java.util.Scanner;
 import java.util.ArrayList;
 
+/**
+ * Class for solving the maze
+ */
 class SolveMaze {
 
+  /**
+   * Method to read the maze
+   * @param fname name of maze file
+   * @return Maze with all the new things in it
+   */
   public static Maze readMaze(String fname){
     ArrayList<String> lines = new ArrayList<String>();
     Scanner file = null;
@@ -20,6 +28,8 @@ class SolveMaze {
 
     int height = lines.size();
     int width = lines.get(0).length();
+    System.out.println(height);
+    System.out.println(width);
 
     Maze maze = new Maze(width, height);
 
@@ -49,6 +59,13 @@ class SolveMaze {
     return maze;
   }
 
+  /**
+   * Recursive solver for maze
+   * @param maze the maze to solve
+   * @param row the row to start at
+   * @param col the column to start at
+   * @return true if it can be solved, false if it cannot be
+   */
   public static boolean solve(Maze maze, int row, int col) {
 
     if (!maze.isExplorable(row, col)) {
@@ -74,6 +91,10 @@ class SolveMaze {
   }
 
   
+  /**
+   * Testing the maze function
+   * @param args arguments to run the code
+   */
   public static void main(String[] args) {    
     Maze maze;
     if (args.length <= 0) {
