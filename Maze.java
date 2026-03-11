@@ -8,11 +8,24 @@ public class Maze implements DisplayableMaze{
     private MazeLocation start;
     private MazeLocation finish;
 
+    public Maze() {
+        this.width = 10;
+        this.height = 10;
+        this.mazeGrid = new MazeContents[this.height][this.width];
+    }
+
+    public Maze(int width, int height) {
+        this.width = width;
+        this.height = height;
+        this.mazeGrid = new MazeContents[this.height][this.width];
+    }
+
     public Maze(int width, int height, MazeLocation start, MazeLocation finish) {
         this.width = width;
         this.height = height;
         this.start = start;
         this.finish = finish;
+        this.mazeGrid = new MazeContents[this.height][this.width];
     }
 
     /** @return height of maze grid */
@@ -60,6 +73,14 @@ public class Maze implements DisplayableMaze{
     /** @return location of maze finish point */
     public MazeLocation getFinish() {
         return this.finish;
+    }
+
+    public void setFinish(MazeLocation finish) {
+        this.finish = finish;
+    }
+
+    public void setStart(MazeLocation start) {
+        this.start = start;
     }
 
     public void setContents(int row, int col, MazeContents content) {

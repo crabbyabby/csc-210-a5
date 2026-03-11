@@ -11,7 +11,7 @@ Other collaborators you worked with, including TAs (and feel free to give a shou
 Any references used besides JavaDoc and course materials:
 https://www.geeksforgeeks.org/java/switch-statement-in-java/
 https://www.w3schools.com/java/java_files_read.asp
-
+https://www.geeksforgeeks.org/java/iterate-over-the-characters-of-a-string-in-java/?st_source=ai_mode 
 
 ## Reflection
 

@@ -4,28 +4,49 @@ import java.util.ArrayList;
 
 class SolveMaze {
 
-  public static Scanner readMaze(String fname){
+  public static Maze readMaze(String fname){
+    ArrayList<String> lines = new ArrayList<String>();
     Scanner file = null;
     try {
       file = new Scanner(new File(fname));
-      int length = 0;
-      int width = 0;
-
-      while (file.hasNextLine()) {
-        String data = file.nextLine();
-        System.out.println(data);
-        width = data.length();
-        length++;
-      }
-
-      file = new Scanner(new File(fname));
-
-
     } catch (FileNotFoundException e) {
       System.err.println("Cannot locate file.");
       System.exit(-1);  
     }
-    return file;
+
+    while (file.hasNextLine()) {
+      lines.add(file.nextLine());
+    }
+
+    int height = lines.size();
+    int width = lines.get(0).length();
+
+    Maze maze = new Maze(width, height);
+
+    for (int row = 0; row < height; row++) {
+      for (int col = 0; col < width; col++) {
+        char content = lines.get(row).charAt(col);
+
+        if (content == '#') {
+            maze.setContents(row, col, MazeContents.WALL);
+        }
+        else if (content == 'S') {
+            maze.setContents(row, col, MazeContents.OPEN);
+            MazeLocation start = new MazeLocation(row, col);
+            maze.setStart(start);
+        }
+        else if (content == 'F') {
+            maze.setContents(row, col, MazeContents.OPEN);
+            MazeLocation finish = new MazeLocation(row, col);
+            maze.setFinish(finish);
+        }
+        else {
+            maze.setContents(row, col, MazeContents.OPEN);
+        }
+      }
+    }
+
+    return maze;
   }
 
 
@@ -70,20 +91,17 @@ When neither base case applies:
   }
 
   
-  public static void main(String[] args) {
-    Scanner file = null;
+  public static void main(String[] args) {    
+    Maze maze;
     if(args.length <= 0){
-      file = readMaze("maze1");
-    }
-    else{
-      file = readMaze(args[0]);
-    }
-    
+        maze = readMaze("maze1");
+    } else {
+        maze = readMaze(args[0]);
 
-    //System.out.println(file.nextLine());
     
-    // Maze maze = new Maze();
-    // MazeViewer viewer = new MazeViewer(maze);
-    // maze.initDemoMaze();
+    maze = new Maze();
+    MazeViewer viewer = new MazeViewer(maze);
+    maze.initDemoMaze();
   }
+}
 }
