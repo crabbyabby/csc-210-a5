@@ -51,7 +51,7 @@ public class Maze implements DisplayableMaze{
 
     /**
      * Constructor for that autograderrrr
-     * @param String of the maze name
+     * @param mazeName the name of the maze file
      */
     public Maze(String mazeName) {
         SolveMaze.readMaze(mazeName);
