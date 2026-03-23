@@ -62,14 +62,14 @@ public class Maze implements DisplayableMaze{
         ArrayList<String> lines = new ArrayList<String>();
         Scanner file = null;
         try {
-        file = new Scanner(new File(fname));
+            file = new Scanner(new File(fname));
         } catch (FileNotFoundException e) {
-        System.err.println("Cannot locate file.");
-        System.exit(-1);  
+            System.err.println("Cannot locate file.");
+            System.exit(-1);  
         }
 
         while (file.hasNextLine()) {
-        lines.add(file.nextLine());
+            lines.add(file.nextLine());
         }
 
         int height = lines.size();
@@ -77,27 +77,29 @@ public class Maze implements DisplayableMaze{
         System.out.println(height);
         System.out.println(width);
 
-        Maze maze = new Maze(width, height);
+        this.width = width;
+        this.height = height;
+        this.mazeGrid = new MazeContents[height][width];
 
         for (int row = 0; row < height; row++) {
         for (int col = 0; col < width; col++) {
             char content = lines.get(row).charAt(col);
 
             if (content == '#') {
-                maze.setContents(row, col, MazeContents.WALL);
+                this.setContents(row, col, MazeContents.WALL);
             }
             else if (content == 'S') {
-                maze.setContents(row, col, MazeContents.OPEN);
+                this.setContents(row, col, MazeContents.OPEN);
                 MazeLocation start = new MazeLocation(row, col);
-                maze.setStart(start);
+                this.setStart(start);
             }
             else if (content == 'F') {
-                maze.setContents(row, col, MazeContents.OPEN);
+                this.setContents(row, col, MazeContents.OPEN);
                 MazeLocation finish = new MazeLocation(row, col);
-                maze.setFinish(finish);
+                this.setFinish(finish);
             }
             else {
-                maze.setContents(row, col, MazeContents.OPEN);
+                this.setContents(row, col, MazeContents.OPEN);
             }
         }
         }
