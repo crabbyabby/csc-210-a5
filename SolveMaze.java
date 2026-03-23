@@ -7,7 +7,57 @@ import java.util.ArrayList;
  */
 class SolveMaze {
 
+  /**
+   * Method to read the maze
+   * @param fname name of maze file
+   * @return Maze with all the new things in it
+   */
+  public static Maze readMaze(String fname){
+    ArrayList<String> lines = new ArrayList<String>();
+    Scanner file = null;
+    try {
+      file = new Scanner(new File(fname));
+    } catch (FileNotFoundException e) {
+      System.err.println("Cannot locate file.");
+      System.exit(-1);  
+    }
 
+    while (file.hasNextLine()) {
+      lines.add(file.nextLine());
+    }
+
+    int height = lines.size();
+    int width = lines.get(0).length();
+    System.out.println(height);
+    System.out.println(width);
+
+    Maze maze = new Maze(width, height);
+
+    for (int row = 0; row < height; row++) {
+      for (int col = 0; col < width; col++) {
+        char content = lines.get(row).charAt(col);
+
+        if (content == '#') {
+            maze.setContents(row, col, MazeContents.WALL);
+        }
+        else if (content == 'S') {
+            maze.setContents(row, col, MazeContents.OPEN);
+            MazeLocation start = new MazeLocation(row, col);
+            maze.setStart(start);
+        }
+        else if (content == 'F') {
+            maze.setContents(row, col, MazeContents.OPEN);
+            MazeLocation finish = new MazeLocation(row, col);
+            maze.setFinish(finish);
+        }
+        else {
+            maze.setContents(row, col, MazeContents.OPEN);
+        }
+      }
+    }
+
+    return maze;
+  }
 
   /**
    * Recursive solver for maze
@@ -46,12 +96,7 @@ class SolveMaze {
    * @param args arguments to run the code
    */
   public static void main(String[] args) {    
-    Maze maze;
-    if (args.length <= 0) {
-        maze = readMaze("maze1");
-    } else {
-        maze = readMaze(args[0]);
-    }
+    Maze maze = new Maze(args.length > 0 ? args[0] : "maze1");
 
     MazeViewer viewer = new MazeViewer(maze);
     MazeLocation start = maze.getStart();

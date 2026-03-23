@@ -56,7 +56,7 @@ public class Maze implements DisplayableMaze{
 
     /**
      * Constructor for that autograderrrr
-     * @param mazeName the name of the maze file
+     * @param fname the name of the maze file
      */
     public Maze(String fname) {
         ArrayList<String> lines = new ArrayList<String>();
